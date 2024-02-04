@@ -6,21 +6,30 @@ body{
     flex-direction:column;
 }
 #input{
-    margin-top: calc(50% - 100px);
+    border-color: lightpink !important;
+    margin-top: calc(50% - 200px);
     background-color: rgba(212, 171, 171, 0.637);
     border-radius:10px;
     color:white;
     font-size:larger;
     font-weight: 500;
-    font-family: 'Climate Crisis', sans-serif;
+    font-family: 'Raleway', sans-serif;
     text-decoration: none;
-    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px rgb(138, 121, 139);
     padding:1%;
     width: 40%;
 }
+#input:focus{
+    caret-color: pink;
+    outline:none;
+    border-color: pink !important;
+}
 #output{
+    text-shadow: 2px 2px 4px rgb(138, 121, 139);
     height:200px !important;
-    /* font-family: 'Climate Crisis', sans-serif; */
+    font-family: "Dancing Script", cursive;
+    font-size: xx-large;
+    font-weight: 300;
     display:flex;
     align-items: center;
     justify-content: center;
