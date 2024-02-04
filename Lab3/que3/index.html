@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telephone Number Splitter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height:100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <label for="phoneNumberInput">Enter Phone Number:</label>
+        <input type="text" id="phoneNumberInput" placeholder="(555) 555-5555">
+        <button onclick="splitPhoneNumber()">Split</button>
+        <br><br>
+        <label for="areaCodeOutput">Area Code:</label>
+        <input type="text" id="areaCodeOutput" readonly>
+
+        <br><br>
+
+        <label for="phoneNumberOutput">Phone Number:</label>
+        <input type="text" id="phoneNumberOutput" readonly>
+    </div>
+    <script>
+        function splitPhoneNumber() {
+            const phoneNumberInput = document.getElementById('phoneNumberInput').value;
+            const digits = phoneNumberInput.match(/\d/g);
+            if (digits && digits.length === 10) {
+                const areaCode = digits.slice(0, 3).join('');
+                const phoneNumber = digits.slice(3).join('');
+                document.getElementById('areaCodeOutput').value = areaCode;
+                document.getElementById('phoneNumberOutput').value = phoneNumber;
+            } else {
+                alert('Invalid phone number format. Please use (555) 555-5555.');
+            }
+        }
+        phoneNumberInput.addEventListener('input',(e)=>{
+            const isBackspace = e.inputType === 'deleteContentBackward';
+            if(isBackspace){
+                return;
+            }
+            if(e.target.value.length>14){
+                return;
+            }
+            if(e.target.value.length==1){
+                e.target.value="("+e.target.value;
+            }
+            if(e.target.value.length==4){
+                e.target.value=e.target.value+")";
+            }
+            if(e.target.value.length==6){
+                e.target.value=e.target.value.slice(0,5)+" "+e.target.value.slice(6);
+            }
+            if(e.target.value.length==9){
+                e.target.value=e.target.value+"-";
+            }
+        })
+    </script>
+</body>
+</html>

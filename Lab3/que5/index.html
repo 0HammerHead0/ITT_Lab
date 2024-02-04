@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squares and Cubes Table</title>
+</head>
+<body>
+    <h2>Squares and Cubes Table</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Square</th>
+                <th>Cube</th>
+            </tr>
+        </thead>
+        <tbody id="resultTableBody"></tbody>
+    </table>
+
+    <script>
+        function calculateAndDisplay() {
+            const resultTableBody = document.getElementById('resultTableBody');
+            resultTableBody.innerHTML = '';
+            for (let i = 0; i <= 10; i++) {
+                const square = i * i;
+                const cube = i * i * i;
+                const newRow = document.createElement('tr');
+                const numberCell = document.createElement('td');
+                const squareCell = document.createElement('td');
+                const cubeCell = document.createElement('td');
+
+                numberCell.textContent = i;
+                squareCell.textContent = square;
+                cubeCell.textContent = cube;
+
+                newRow.appendChild(numberCell);
+                newRow.appendChild(squareCell);
+                newRow.appendChild(cubeCell);
+                resultTableBody.appendChild(newRow);
+            }
+        }
+        calculateAndDisplay();
+    </script>
+</body>
+</html>

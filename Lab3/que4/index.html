@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three-Letter Words Generator</title>
+</head>
+<body>
+    <label for="wordInput">Enter a Five-Letter Word:</label>
+    <input type="text" id="wordInput" maxlength="5">
+    <button onclick="generateWords()">Generate Words</button>
+
+    <br><br>
+
+    <label for="outputTextArea">Generated Three-Letter Words:</label>
+    <textarea id="outputTextArea" rows="10" cols="30" readonly></textarea>
+
+    <script>
+        const wordInput = document.getElementById('wordInput');
+        wordInput.addEventListener('input', (e) => {
+            if (e.target.value.length > 5) {
+                e.target.value = e.target.value.slice(0, 5);
+            }
+        });
+        function generateWords() {
+            const wordInput = document.getElementById('wordInput').value.toLowerCase();
+            if (wordInput.length !== 5 || !/^[a-z]+$/.test(wordInput)) {
+                alert('Please enter a valid five-letter word.');
+                return;
+            }
+            const threeLetterWords = [];
+            for (let i = 0; i < 5; i++) {
+                for (let j = i + 1; j < 5; j++) {
+                    for (let k = j + 1; k < 5; k++) {
+                        const threeLetterWord = wordInput[i] + wordInput[j] + wordInput[k];
+                        threeLetterWords.push(threeLetterWord);
+                    }
+                }
+            }
+            const outputTextArea = document.getElementById('outputTextArea');
+            outputTextArea.value = threeLetterWords.join('\n');
+        }
+    </script>
+</body>
+</html>
