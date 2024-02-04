@@ -1,27 +1,21 @@
-console.log("helo")
-const input = document.getElementById('input');
-const input_content = document.getElementById("input-content");
-const output1 = document.getElementById("output1")
+const paragraph1 = document.getElementById('paragraph1');
+const paragraph2 = document.getElementById('paragraph2');
+const paragraph3 = document.getElementById('paragraph3');
 
-var input_num ;
-input.addEventListener('submit',(e)=>{
-    e.preventDefault();
-})
-input_content.addEventListener('keypress',(event)=>{
-    if(event.key=="Enter"){
-        const inp = event.target.value;
-        if(!isNaN(parseInt(inp))){
-            output1.innerHTML = String(event.target.value).split('').reverse().join('');
-        }
-        else{
-            var inputString = event.target.value;
-            for (var index = 0; index < inputString.length; index++) {
-                var e = inputString[index];
-                if (e == 'a' || e == 'A' || e == 'e' || e == 'E' || e == 'i' || e == 'i' || e == 'I' || e == 'O' || e == 'o' || e == 'u' || e == 'U') {
-                    output1.innerHTML = "Position of first vowel (" + e + ") is " + String(index);
-                    break; // This will exit the for loop
-                }
-            }
-        }
-    }
-})
+const paragraph1_height = paragraph1.clientHeight;
+const paragraph2_height = paragraph2.clientHeight;
+const paragraph3_height = paragraph3.clientHeight;
+
+const window_height = window.innerHeight;
+
+paragraph1.style.top = `${window_height/2 - 3*paragraph1_height}px`;
+
+paragraph2.style.top = `${window_height/2 - 3*paragraph2_height}px`;
+
+paragraph3.style.top = `${window_height/2 - 3*paragraph3_height}px`;
+
+window.addEventListener('resize', () => {
+    paragraph1.style.top = `${window.innerHeight/2 - 3.5*paragraph1_height}px`;
+    paragraph2.style.top = `${window.innerHeight/2 - 2.6*paragraph2_height}px`;
+    paragraph3.style.top = `${window.innerHeight/2 - 2*paragraph3_height}px`;
+});

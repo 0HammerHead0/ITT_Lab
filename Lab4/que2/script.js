@@ -19,7 +19,7 @@ input_content.addEventListener('keypress',(event)=>{
                 var e = inputString[index];
                 if (e == 'a' || e == 'A' || e == 'e' || e == 'E' || e == 'i' || e == 'i' || e == 'I' || e == 'O' || e == 'o' || e == 'u' || e == 'U') {
                     output1.innerHTML = "Position of first vowel (" + e + ") is " + String(index);
-                    break; // This will exit the for loop
+                    break;
                 }
             }
         }
