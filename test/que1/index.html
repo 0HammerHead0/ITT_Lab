@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+</head>
+<body>
+    <input name="one" id="one" type="number">
+    <input name="two" id="two" type="number">
+    <div id="out"></div>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Fib</th>
+                <th>Fact</th>
+            </tr>
+        </thead>
+        <tbody id="resultTableBody"></tbody>
+    </table>
+    <script>
+        const one = document.getElementById("one")
+        const two = document.getElementById("two")
+        const out = document.getElementById('out')
+        var sumVar;
+        var oneVar;
+        var twoVar
+        one.addEventListener('input',(e)=>{
+            oneVar=parseInt(e.target.value)
+            console.log(oneVar)
+            if(!isNaN(oneVar)){
+                console.log("sum")
+
+                sum();}
+        })
+        two.addEventListener('input',(e)=>{
+            twoVar=parseInt(e.target.value)
+            console.log(twoVar)
+            if(!isNaN(twoVar)){
+                console.log("sum")
+                sum();}
+        })
+        function sum(){
+            sumVar = oneVar + twoVar;
+            console.log(sumVar)
+                if(sumVar%2==0){
+                    fib(sumVar)
+                }
+            if(!isNaN(sum)){
+                console.log(sumVar)
+                const resultTableBody = document.getElementById('resultTableBody');
+                resultTableBody.innerHTML = '';
+                const list = fib(sum);
+                console.log(list)
+                list.forEach((e)=>{
+                    console.log(e)
+                })
+                // for (let i = 0; i <= 10; i++) {
+                //     const square = i * i;
+                //     const cube = i * i * i;
+                //     const newRow = document.createElement('tr');
+                //     const numberCell = document.createElement('td');
+                //     const squareCell = document.createElement('td');
+                //     const cubeCell = document.createElement('td');
+
+                //     numberCell.textContent = i;
+                //     squareCell.textContent = square;
+                //     cubeCell.textContent = cube;
+
+                //     newRow.appendChild(numberCell);
+                //     newRow.appendChild(squareCell);
+                //     newRow.appendChild(cubeCell);
+                //     resultTableBody.appendChild(newRow);
+                // }
+            }
+        }
+    function fib(num){
+            if(num!=NaN){
+                if(num <= 0) out.innerHTML = "Give something greater than 0 idiot"
+                if(num==1) out.innerHTML = 0;
+                else if(num==2) out.innerHTML = "0 1";
+                else{
+                    out.innerHTML = "0 1";
+                    count=2;
+                    var fibSeries = [0, 1];
+                    for (var i = 2; i < num; i++) {
+                        fibSeries[i] = fibSeries[i - 1] + fibSeries[i - 2];
+                        out.innerHTML = out.innerHTML + " "+String(fibSeries[i]);
+                    }
+                }
+            }
+            return fibSeries;
+    }
+    function factorial(n){  
+        var temp=n;
+        for(let i =1;i<n;i++){
+            temp*=i
+        }
+        return temp
+    }
+    </script>
+</body>
+</html>
