@@ -5,7 +5,6 @@ output.style.width = text.offsetWidth+'px';
 function convert(){
     let words=text.value.split(' ');
     let res='Nothing here yet';
-    console.log(words)
     if(text.value!=''){
         res='';
         words.forEach((word)=>{

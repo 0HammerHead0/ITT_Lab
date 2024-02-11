@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>USN Collection</title>
   <script type="text/javascript">
     function validateUSN() {
       var usnInput = document.getElementById('usn').value.trim();
@@ -16,12 +15,10 @@
         alert('Invalid Semester format! Please enter a valid Semester.');
         return false;
       }
-
       if (!semesterInput) {
         alert('Please enter the current semester.');
         return false;
       }
-
       alert('USN and Semester submitted successfully!');
       return true;
     }

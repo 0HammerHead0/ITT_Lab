@@ -2,7 +2,6 @@ console.log("helo")
 const input = document.getElementById('input');
 const input_content = document.getElementById("input-content");
 const output1 = document.getElementById("output1")
-
 var input_num ;
 input.addEventListener('submit',(e)=>{
     e.preventDefault();
