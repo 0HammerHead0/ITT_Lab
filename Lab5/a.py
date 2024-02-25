@@ -5,7 +5,7 @@ while(True):
     print("4.Subtract")
     print("-1.Exit")
     inp = int(input("Enter operation"))
-    [m,n]=[eval(i) for i in input("Enter two numbers by space ").split(" ")]
+    [m,n]=[int(i) for i in input("Enter two numbers by space ").split(" ")]
     if( inp == 1):
         print(m+n)
     elif(inp == 2):
