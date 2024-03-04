@@ -23,24 +23,18 @@ def display_sorted_records(conn, sort_key):
     for row in cursor:
         print(f"{row[0]:<12} {row[1]:<15} {row[2]:<15} {row[3]:<10} {row[4]:<10} {row[5]:<10} {row[6]}")
 
-# Connect to the database (test.db)
-conn = sqlite3.connect('test.db')
+conn = sqlite3.connect('Lab7.db')
 
-# Create the STUDENTS table
 create_student_table(conn)
 
-# Insert sample student records (You can replace this with your actual student data)
 student_data = [
     (1, '2022001', 'Computer Science', 1, 'A', 3.8, 'student1@example.com'),
     (2, '2022002', 'Electrical Engineering', 2, 'B', 3.5, 'student2@example.com'),
-    # Add more student data as needed
 ]
 
 for data in student_data:
     insert_student_data(conn, data)
 
-# Display student records sorted by CGPA
 display_sorted_records(conn, 'CGPA')
 
-# Close the database connection
 conn.close()

@@ -32,13 +32,10 @@ def search_student_by_regno(conn, regno):
     else:
         print(f"No student found with Registration Number: {regno}")
 
-# Connect to the database (test.db)
-conn = sqlite3.connect('test.db')
+conn = sqlite3.connect('Lab7.db')
 
-# Create the STUDENTS table
 create_student_table(conn)
 
-# Insert sample student records (You can replace this with your actual student data)
 student_data = [
     (1, '210911052', 'Shashwat Trivedi', 'Information Tech', 1, 3.8, 'shashwat.trivedi@example.com'),
     (2, '210911122', 'Shantanu', 'Information Tech', 2, 3.5, 'shantanu.srivastava@example.com')
@@ -47,11 +44,8 @@ student_data = [
 for data in student_data:
     insert_student_data(conn, data)
 
-# Ask the user for the registration number to search
 search_regno = input("Enter the Registration Number to search for a student: ")
 
-# Search for the student by registration number
 search_student_by_regno(conn, search_regno)
 
-# Close the database connection
 conn.close()

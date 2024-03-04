@@ -16,17 +16,12 @@ def register_user(conn, username, password, email):
         print("Username already exists. Please choose a different username.")
 
 def is_valid_password(password):
-    # Add your password validation criteria here
-    # For example, minimum length, at least one uppercase letter, etc.
     return len(password) >= 8
 
-# Connect to the database (test.db)
-conn = sqlite3.connect('test.db')
+conn = sqlite3.connect('Lab7.db')
 
-# Create the USERS table
 create_users_table(conn)
 
-# User registration
 username = input("Enter your username: ")
 password = input("Enter your password: ")
 
@@ -36,8 +31,6 @@ while not is_valid_password(password):
 
 email = input("Enter your email address: ")
 
-# Register the user
 register_user(conn, username, password, email)
 
-# Close the database connection
 conn.close()
